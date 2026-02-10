@@ -2,6 +2,37 @@
    Events & Workshops Component Styles
    ============================================ */
 
+/* ---- Section Divider Strip ---- */
+.section-strip {
+    width: 100%;
+    height: 280px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: relative;
+}
+
+.section-strip::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--layer);
+}
+
+@media (max-width: 768px) {
+    .section-strip {
+        height: 180px;
+        background-attachment: scroll;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-strip {
+        height: 140px;
+    }
+}
+
 /* ---- Calendar Component ---- */
 .ec-calendar {
     background-color: var(--bg-color);
