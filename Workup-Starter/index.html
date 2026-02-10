@@ -15,6 +15,7 @@ Author URL: http://w3layouts.com
         rel="stylesheet">
     <!-- Template CSS Style link -->
     <link rel="stylesheet" href="assets/css/style-starter.css">
+    <link rel="stylesheet" href="assets/css/events.css">
 </head>
 
 <body>
@@ -41,6 +42,9 @@ Author URL: http://w3layouts.com
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="services.html">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="calendar.html">Calendar</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="contact.html">Contact</a>
@@ -132,55 +136,27 @@ Author URL: http://w3layouts.com
     <section class="home-services py-5" id="services">
         <div class="container py-lg-5 py-md-4 py-2">
             <div class="title-main text-center mx-auto mb-md-5 mb-4" style="max-width:700px;">
-                <h5 class="small-title mb-2">Valued Services</h5>
-                <h3 class="title-style">More than 30+ years we provide business consulting</h3>
+                <h5 class="small-title mb-2">Workshops & Events</h5>
+                <h3 class="title-style">We organize fun and interactive workshops and Events</h3>
             </div>
             <div class="row justify-content-center">
-                <div class="col-lg-3 col-md-6">
-                    <div class="box-wrap">
-                        <div class="icon">
-                            <i class="fas fa-donate"></i>
+                <div class="col-lg-5 col-md-6">
+                    <div class="service-card">
+                        <h4 class="service-card__title">WORKSHOPS</h4>
+                        <div class="service-card__image">
+                            <img src="assets/images/workshop-placeholder.jpg" alt="Workshops">
                         </div>
-                        <h4 class="number">01</h4>
-                        <h4><a href="#url">Financial planing</a></h4>
-                        <p>Lorem ipsum dolor sit amet sed consectetur adipisicing elit.
-                            doloret quas saepe autem, dolor set.</p>
+                        <p class="service-card__desc">We conduct hands-on workshops covering a range of topics to help you learn, grow, and build something amazing.</p>
                         <a href="services.html" class="read">Read more</a>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 mt-md-0 mt-4">
-                    <div class="box-wrap">
-                        <div class="icon">
-                            <i class="fas fa-marker"></i>
+                <div class="col-lg-5 col-md-6 mt-md-0 mt-4">
+                    <div class="service-card">
+                        <h4 class="service-card__title">EVENTS</h4>
+                        <div class="service-card__image">
+                            <img src="assets/images/event-placeholder.jpg" alt="Events">
                         </div>
-                        <h4 class="number">02</h4>
-                        <h4><a href="#url">Training services</a></h4>
-                        <p>Lorem ipsum dolor sit amet sed consectetur adipisicing elit.
-                            doloret quas saepe autem, dolor set.</p>
-                        <a href="services.html" class="read">Read more</a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 mt-lg-0 mt-4">
-                    <div class="box-wrap">
-                        <div class="icon">
-                            <i class="fas fa-user-tie"></i>
-                        </div>
-                        <h4 class="number">03</h4>
-                        <h4><a href="#url">Marketing services</a></h4>
-                        <p>Lorem ipsum dolor sit amet sed consectetur adipisicing elit.
-                            doloret quas saepe autem, dolor set.</p>
-                        <a href="services.html" class="read">Read more</a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 mt-lg-0 mt-4">
-                    <div class="box-wrap">
-                        <div class="icon">
-                            <i class="fas fa-calculator"></i>
-                        </div>
-                        <h4 class="number">04</h4>
-                        <h4><a href="#url">Taxation services</a></h4>
-                        <p>Lorem ipsum dolor sit amet sed consectetur adipisicing elit.
-                            doloret quas saepe autem, dolor set.</p>
+                        <p class="service-card__desc">We organize exciting events that bring people together for networking, fun, and memorable experiences.</p>
                         <a href="services.html" class="read">Read more</a>
                     </div>
                 </div>
@@ -188,6 +164,84 @@ Author URL: http://w3layouts.com
         </div>
     </section>
     <!-- //home page service grids -->
+
+    <!-- event gallery section -->
+    <section class="event-gallery py-5" id="gallery">
+        <div class="container py-lg-5 py-md-4 py-2">
+            <div class="title-main text-center mx-auto mb-md-5 mb-4" style="max-width:700px;">
+                <h5 class="small-title mb-2">Our Gallery</h5>
+                <h3 class="title-style">Moments from Our Past Events</h3>
+            </div>
+            <div class="gallery-wrapper">
+                <!-- left mascot -->
+                <img src="assets/images/dino-peek-left.png" alt="Mascot" class="gallery-mascot gallery-mascot--left">
+                <!-- right mascot -->
+                <img src="assets/images/girl-peek-right.png" alt="Mascot" class="gallery-mascot gallery-mascot--right">
+                <!-- carousel track -->
+                <div class="gallery-carousel">
+                    <div class="gallery-track">
+                        <div class="gallery-slide">
+                            <img src="assets/images/gallery-1.jpg" alt="Event 1">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="assets/images/gallery-2.jpg" alt="Event 2">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="assets/images/gallery-3.jpg" alt="Event 3">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="assets/images/gallery-4.jpg" alt="Event 4">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="assets/images/gallery-5.jpg" alt="Event 5">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="assets/images/gallery-6.jpg" alt="Event 6">
+                        </div>
+                        <!-- duplicated for seamless loop -->
+                        <div class="gallery-slide">
+                            <img src="assets/images/gallery-1.jpg" alt="Event 1">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="assets/images/gallery-2.jpg" alt="Event 2">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="assets/images/gallery-3.jpg" alt="Event 3">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="assets/images/gallery-4.jpg" alt="Event 4">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="assets/images/gallery-5.jpg" alt="Event 5">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="assets/images/gallery-6.jpg" alt="Event 6">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //event gallery section -->
+
+    <!-- calendar section -->
+    <section class="home-calendar py-5" id="calendar">
+        <div class="container py-lg-5 py-md-4 py-2">
+            <div class="title-main text-center mx-auto mb-md-5 mb-4" style="max-width:700px;">
+                <h5 class="small-title mb-2">Upcoming Schedule</h5>
+                <h3 class="title-style">Our Events Calendar</h3>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-md-10">
+                    <div id="home-calendar"></div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <a href="calendar.html" class="btn btn-style">View Full Calendar</a>
+            </div>
+        </div>
+    </section>
+    <!-- //calendar section -->
 
     <!-- why choose section -->
     <section class="w3l-servicesblock py-5" id="whychoose">
@@ -737,6 +791,14 @@ Author URL: http://w3layouts.com
     <!-- bootstrap -->
     <script src="assets/js/bootstrap.min.js"></script>
     <!-- //bootstrap -->
+
+    <!-- events system -->
+    <script src="assets/js/events-data.js"></script>
+    <script src="assets/js/calendar.js"></script>
+    <script>
+        CalendarRenderer.init('#home-calendar', { compact: true });
+    </script>
+    <!-- //events system -->
     <!-- //Js scripts -->
 </body>
 
