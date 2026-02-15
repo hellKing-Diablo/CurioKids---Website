@@ -27,6 +27,9 @@ This file helps Claude Code remember context between sessions. It also serves as
 | `assets/js/post.js` | Loads event detail from URL param, renders gallery & comments |
 | `assets/js/services.js` | Services page filtering (workshops vs events) |
 | `assets/js/theme-change.js` | Light/Dark mode toggle with localStorage |
+| `products.html` | Dedicated products page with detail & purchase modals |
+| `assets/js/products-data.js` | Central data store for all products (JSON-like) |
+| `assets/js/products.js` | Products page logic (cards, detail modal, purchase modal) |
 
 ## Features Implemented
 - Dynamic event/workshop system with 4 sample events
@@ -38,6 +41,7 @@ This file helps Claude Code remember context between sessions. It also serves as
 - Hero banner, gallery carousel, scroll-to-top button
 - School partnership CTA section
 - Decorative background strips between sections
+- Products system: 2 DIY kits with detail modals, purchase flow UI, homepage product section with mascots
 
 ## Theme / Design Notes
 - CSS custom properties for theming (`--primary-color`, `--heading-color`, etc.)
@@ -70,6 +74,23 @@ This file helps Claude Code remember context between sessions. It also serves as
   - Image path: `assets/images/navbar-bg.png` — user needs to add this image
   - Applied to both `header` and `header.nav-fixed` states
   - No layout/feature changes, just background-image CSS properties added
+
+---
+
+### Session 3 — 2026-02-15
+**Prompts**:
+1. (Plan mode) User approved a detailed implementation plan for product feature: homepage product section, dedicated products page, purchase flow UI.
+2. "Implement the following plan: [full product feature implementation plan]"
+
+**Changes made**:
+- **Created 3 new files**:
+  - `assets/js/products-data.js` — `window.PRODUCTS_DATA` array with 2 dummy products ("DIY Science Experiment Kit" at INR 500, "Creative Arts & Craft DIY Kit" at INR 450)
+  - `assets/js/products.js` — IIFE rendering product cards, detail modal (with gallery, reviews, tags), purchase modal (address form with HTML5 validation, success state)
+  - `products.html` — Full products page with inner-banner, products grid, `#productDetailModal` (large, scrollable), `#purchaseModal` (address form, success message)
+- **Modified `index.html`** — Added Products nav link, products section (with dino/girl mascots) between gallery and strip 2, products-data script + inline JS to populate homepage grid
+- **Modified 5 other pages** — Added "Products" nav link to `about.html`, `services.html`, `calendar.html`, `contact.html`, `post.html`
+- **Modified `assets/css/events.css`** — Appended product card styles (`.product-card` + BEM children), home products wrapper with mascots, product detail/purchase modal styles, responsive breakpoints at 991px/768px/480px
+- **Updated `CLAUDE.md`** — Added new files to Key Files table, updated Features Implemented, added this session log
 
 ---
 

@@ -1,6 +1,6 @@
 <!--
-Author: W3layouts
-Author URL: http://w3layouts.com
+Author: Yagnik Vanodiya
+Author URL:
 -->
 <!doctype html>
 <html lang="en">
@@ -9,7 +9,7 @@ Author URL: http://w3layouts.com
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Workup - Events Calendar</title>
+    <title>Workup - DIY Kits & Products</title>
     <!-- Google fonts -->
     <link href="//fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
@@ -44,10 +44,10 @@ Author URL: http://w3layouts.com
                             <a class="nav-link" href="services.html">Services</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="products.html">Products</a>
+                            <a class="nav-link active" href="products.html">Products</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="calendar.html">Calendar</a>
+                            <a class="nav-link" href="calendar.html">Calendar</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="contact.html">Contact</a>
@@ -86,37 +86,113 @@ Author URL: http://w3layouts.com
     <section class="inner-banner py-5">
         <div class="w3l-breadcrumb py-lg-5">
             <div class="container pt-5 pb-sm-4">
-                <h4 class="inner-text-title font-weight-bold pt-sm-5 pt-4">Events Calendar</h4>
+                <h4 class="inner-text-title font-weight-bold pt-sm-5 pt-4">DIY Kits & Products</h4>
                 <ul class="breadcrumbs-custom-path">
                     <li><a href="index.html">Home</a></li>
-                    <li class="active"><i class="fas fa-angle-right mx-2"></i>Calendar</li>
+                    <li class="active"><i class="fas fa-angle-right mx-2"></i>Products</li>
                 </ul>
             </div>
         </div>
     </section>
     <!-- //inner banner -->
 
-    <!-- calendar section -->
-    <section class="py-5">
+    <!-- products section -->
+    <section class="home-services py-5" id="products">
         <div class="container py-lg-5 py-md-4 py-2">
-            <div class="row">
-                <!-- Calendar Grid -->
-                <div class="col-lg-8 mb-lg-0 mb-4">
-                    <div id="full-calendar"></div>
+            <div class="title-main text-center mx-auto mb-md-5 mb-4" style="max-width:700px;">
+                <h5 class="small-title mb-2">Our Products</h5>
+                <h3 class="title-style">Explore Our DIY Kits</h3>
+            </div>
+            <div class="row justify-content-center" id="products-grid">
+                <!-- populated by products.js -->
+            </div>
+        </div>
+    </section>
+    <!-- //products section -->
+
+    <!-- Product Detail Modal -->
+    <div class="modal fade" id="productDetailModal" tabindex="-1" aria-labelledby="productDetailModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable">
+            <div class="modal-content" style="background-color: var(--bg-color); border: none;">
+                <div class="modal-header" style="border-bottom-color: var(--border-color-light);">
+                    <h5 class="modal-title" id="productDetailModalLabel" style="color: var(--heading-color);">Product Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <!-- Event Detail Sidebar -->
-                <div class="col-lg-4">
-                    <div class="ec-sidebar" id="calendar-sidebar">
-                        <div class="ec-sidebar__placeholder">
-                            <i class="far fa-calendar-alt"></i>
-                            Click on a highlighted day to see event details
-                        </div>
+                <div class="modal-body">
+                    <!-- populated by products.js -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Purchase Modal -->
+    <div class="modal fade" id="purchaseModal" tabindex="-1" aria-labelledby="purchaseModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content" style="background-color: var(--bg-color); border: none;">
+                <div class="modal-header" style="border-bottom-color: var(--border-color-light);">
+                    <h5 class="modal-title" id="purchaseModalLabel" style="color: var(--heading-color);">Complete Your Purchase</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center mb-4">
+                        <h5 id="purchase-product-name" style="color: var(--heading-color); font-weight: 700;"></h5>
+                        <p class="product-detail__price" id="purchase-product-price"></p>
+                    </div>
+
+                    <div id="purchase-form-wrapper">
+                        <form id="purchaseForm" novalidate>
+                            <div class="mb-3">
+                                <label for="purchaseName" class="form-label" style="color: var(--font-color);">Full Name</label>
+                                <input type="text" class="form-control" id="purchaseName" required>
+                                <div class="invalid-feedback">Please enter your full name.</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="purchasePhone" class="form-label" style="color: var(--font-color);">Phone Number</label>
+                                <input type="tel" class="form-control" id="purchasePhone" required>
+                                <div class="invalid-feedback">Please enter your phone number.</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="purchaseEmail" class="form-label" style="color: var(--font-color);">Email Address</label>
+                                <input type="email" class="form-control" id="purchaseEmail" required>
+                                <div class="invalid-feedback">Please enter a valid email address.</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="purchaseAddress" class="form-label" style="color: var(--font-color);">Address</label>
+                                <textarea class="form-control" id="purchaseAddress" rows="2" required></textarea>
+                                <div class="invalid-feedback">Please enter your address.</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 mb-3">
+                                    <label for="purchaseCity" class="form-label" style="color: var(--font-color);">City</label>
+                                    <input type="text" class="form-control" id="purchaseCity" required>
+                                    <div class="invalid-feedback">Required.</div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="purchaseState" class="form-label" style="color: var(--font-color);">State</label>
+                                    <input type="text" class="form-control" id="purchaseState" required>
+                                    <div class="invalid-feedback">Required.</div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="purchasePincode" class="form-label" style="color: var(--font-color);">Pincode</label>
+                                    <input type="text" class="form-control" id="purchasePincode" required>
+                                    <div class="invalid-feedback">Required.</div>
+                                </div>
+                            </div>
+                            <div class="text-center mt-3">
+                                <button type="submit" class="btn btn-style">Purchase</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div id="purchase-success" style="display: none; text-align: center; padding: 40px 20px;">
+                        <i class="fas fa-check-circle" style="font-size: 64px; color: #198754; margin-bottom: 20px; display: block;"></i>
+                        <h4 style="color: var(--heading-color); margin-bottom: 12px;">Order Placed Successfully!</h4>
+                        <p style="color: var(--font-color);">Thank you for your purchase. We'll contact you shortly with delivery details.</p>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-    <!-- //calendar section -->
+    </div>
 
     <!-- footer -->
     <footer class="w3l-footer py-5">
@@ -252,13 +328,10 @@ Author URL: http://w3layouts.com
     <script src="assets/js/bootstrap.min.js"></script>
     <!-- //bootstrap -->
 
-    <!-- events system -->
-    <script src="assets/js/events-data.js"></script>
-    <script src="assets/js/calendar.js"></script>
-    <script>
-        CalendarRenderer.init('#full-calendar', { compact: false, sidebarSelector: '#calendar-sidebar' });
-    </script>
-    <!-- //events system -->
+    <!-- products system -->
+    <script src="assets/js/products-data.js"></script>
+    <script src="assets/js/products.js"></script>
+    <!-- //products system -->
     <!-- //Js scripts -->
 </body>
 
