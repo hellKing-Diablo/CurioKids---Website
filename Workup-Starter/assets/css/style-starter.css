@@ -8047,7 +8047,7 @@ fieldset:disabled .btn {
 }
 
 .py-5 {
-  padding-top: 3rem !important;
+  padding-top: 2rem !important;
   padding-bottom: 3rem !important;
 }
 
@@ -18911,6 +18911,10 @@ a.dropdown-item.active {
 
 header {
   background-color: var(--bg-color);
+  background-image: url('../images/navbar-bg3.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   padding: 0;
   transition: all 0.4s ease 0s;
   height: 90px;
@@ -18922,6 +18926,10 @@ header {
 header.nav-fixed {
   padding: 0;
   background-color: var(--bg-color);
+  background-image: url('../images/navbar-bg3.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   height: 80px;
   border-bottom: none;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.05);
@@ -20900,9 +20908,9 @@ h5.contact-text {
   line-height: 0;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 991px) {
   .hero-banner {
-    padding-top: 70px;
+    padding-top: 100px;
   }
 }
 
