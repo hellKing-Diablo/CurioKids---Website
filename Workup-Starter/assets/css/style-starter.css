@@ -20683,7 +20683,7 @@ p.post-footer a:hover {
 
 /* inner banner */
 .inner-banner {
-  background: url(../images/inner-banner.jpg) no-repeat top;
+  background: url(../images/banner_page_top.png) no-repeat top;
   background-size: cover;
   -webkit-background-size: cover;
   -moz-background-size: cover;
