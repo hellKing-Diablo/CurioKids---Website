@@ -137,11 +137,11 @@ Author URL: http://w3layouts.com
     <section class="home-services py-5" id="services">
         <div class="container py-lg-5 py-md-4 py-2">
             <div class="title-main text-center mx-auto mb-md-5 mb-4" style="max-width:700px;">
-                <h5 class="small-title mb-2">Workshops & Events</h5>
-                <h3 class="title-style">We organize fun and interactive workshops and Events</h3>
+                <h5 class="small-title mb-2">Workshops, Events & Birthday Events</h5>
+                <h3 class="title-style">We organize fun and interactive learning and celebration experiences</h3>
             </div>
             <div class="row justify-content-center">
-                <div class="col-lg-5 col-md-6">
+                <div class="col-lg-4 col-md-6">
                     <div class="service-card">
                         <h4 class="service-card__title">WORKSHOPS</h4>
                         <div class="service-card__image">
@@ -151,13 +151,23 @@ Author URL: http://w3layouts.com
                         <a href="services.html" class="read">Read more</a>
                     </div>
                 </div>
-                <div class="col-lg-5 col-md-6 mt-md-0 mt-4">
+                <div class="col-lg-4 col-md-6 mt-md-0 mt-4">
                     <div class="service-card">
                         <h4 class="service-card__title">EVENTS</h4>
                         <div class="service-card__image">
                             <img src="assets/images/events_index.png" alt="Events">
                         </div>
                         <p class="service-card__desc">We organize exciting events that bring people together for networking, fun, and memorable experiences.</p>
+                        <a href="services.html" class="read">Read more</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mt-lg-0 mt-4">
+                    <div class="service-card">
+                        <h4 class="service-card__title">BIRTHDAY EVENTS</h4>
+                        <div class="service-card__image">
+                            <img src="assets/images/card.jpeg" alt="Birthday Events">
+                        </div>
+                        <p class="service-card__desc">We design joyful birthday experiences with themed setups, games, and engaging activities for kids.</p>
                         <a href="services.html" class="read">Read more</a>
                     </div>
                 </div>
@@ -236,7 +246,7 @@ Author URL: http://w3layouts.com
         <div class="container py-lg-5 py-md-4 py-2">
             <div class="title-main text-center mx-auto mb-md-5 mb-4" style="max-width:700px;">
                 <h5 class="small-title mb-2">Upcoming Schedule</h5>
-                <h3 class="title-style">Our Events Calendar</h3>
+                <h3 class="title-style">Our Services Calendar</h3>
             </div>
             <div class="row justify-content-center">
                 <div class="col-lg-8 col-md-10">
@@ -266,12 +276,12 @@ Author URL: http://w3layouts.com
     <!-- strip 4 -->
     <div class="section-strip" style="background-image: url('assets/images/bg-hz-strip3.png');"></div>
 
-    <!-- recent events & workshops feed -->
+    <!-- recent services feed -->
     <div class="w3l-blog-block-5 py-5" id="recent-feed">
         <div class="container py-md-5 py-4">
             <div class="title-main text-center mx-auto mb-md-5 mb-4" style="max-width:700px;">
                 <h5 class="small-title mb-2">What We've Been Up To</h5>
-                <h3 class="title-style">Recent Events & Workshops</h3>
+                <h3 class="title-style">Recent Events, Workshops & Birthday Events</h3>
             </div>
             <div class="recent-feed-wrapper">
                 <!-- left mascot -->
@@ -283,7 +293,7 @@ Author URL: http://w3layouts.com
             </div>
         </div>
     </div>
-    <!-- //recent events & workshops feed -->
+    <!-- //recent services feed -->
 
     <!-- testimonials section - commented out, may reuse on contact page
     <section class="w3l-index4 py-5" id="testimonials">
@@ -331,7 +341,7 @@ Author URL: http://w3layouts.com
             <div class="row">
                 <div class="col-lg-4 sub-one-left">
                     <h6>About Us</h6>
-                    <p>We are a passionate team dedicated to organizing fun, interactive workshops and events
+                    <p>We are a passionate team dedicated to organizing fun, interactive workshops, events, and birthday events
                         for kids, schools, and communities. From creative arts to robotics, we believe in
                         hands-on learning that builds real-world life skills.</p>
                     <ul class="social mt-4 pt-lg-1">
@@ -358,7 +368,7 @@ Author URL: http://w3layouts.com
                             <li class="mx-2"><a href="#post">- Nov. 21 - </a></li>
                             <li><a href="#post">3 comments</a></li>
                         </ul>
-                        <p class="post-footer"><a href="#post">Organizing new workshops.</a>
+                        <p class="post-footer"><a href="#post">Organizing new workshops and birthday events.</a>
                         </p>
                     </div>
                 </div>
@@ -526,6 +536,12 @@ Author URL: http://w3layouts.com
         (function () {
             var feed = document.getElementById('recent-events-feed');
             if (!feed || !window.EVENTS_DATA) return;
+            function formatTypeLabel(type) {
+                return String(type || '')
+                    .split('-')
+                    .map(function (part) { return part.charAt(0).toUpperCase() + part.slice(1); })
+                    .join(' ');
+            }
 
             var events = window.EVENTS_DATA.slice().sort(function (a, b) {
                 return b.date.localeCompare(a.date);
@@ -546,7 +562,7 @@ Author URL: http://w3layouts.com
                 html += '        <h4><a href="post.html?id=' + ev.id + '">' + ev.title + '</a></h4>';
                 html += '        <p>' + ev.description.substring(0, 100) + '...</p>';
                 html += '        <div class="d-flex align-items-center justify-content-between mt-4">';
-                html += '          <span class="event-listing__card-type event-listing__card-type--' + ev.type + '">' + ev.type + '</span>';
+                html += '          <span class="event-listing__card-type event-listing__card-type--' + ev.type + '">' + formatTypeLabel(ev.type) + '</span>';
                 html += '          <p class="date-text"><i class="far fa-calendar-alt me-1"></i>' + dateStr + '</p>';
                 html += '        </div>';
                 html += '      </div>';

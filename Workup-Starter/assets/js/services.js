@@ -6,11 +6,24 @@
     var categoriesEl = document.querySelector('.services-categories');
     var listingContainer = document.querySelector('.event-listing-container');
     if (!categoriesEl || !listingContainer) return;
+    var TYPE_CONFIG = {
+        workshop: { label: 'Workshops' },
+        event: { label: 'Events' },
+        'birthday-event': { label: 'Birthday Events' }
+    };
 
     function formatDate(dateStr) {
         var parts = dateStr.split("-");
         var d = new Date(parts[0], parts[1] - 1, parts[2]);
         return d.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
+    }
+
+    function formatTypeLabel(type) {
+        if (TYPE_CONFIG[type]) return TYPE_CONFIG[type].label;
+        return String(type || '')
+            .split('-')
+            .map(function (part) { return part.charAt(0).toUpperCase() + part.slice(1); })
+            .join(' ');
     }
 
     function showCategories() {
@@ -22,8 +35,11 @@
         var events = (window.EVENTS_DATA || []).filter(function (ev) {
             return ev.type === type;
         });
+        events.sort(function (a, b) {
+            return b.date.localeCompare(a.date);
+        });
 
-        var typeLabel = type === 'workshop' ? 'Workshops' : 'Events';
+        var typeLabel = formatTypeLabel(type);
 
         var html = '<div class="event-listing">';
         html += '<div class="event-listing__header">';
@@ -37,7 +53,7 @@
             html += '<div class="event-listing__card">';
             html += '<img src="' + ev.thumbnail + '" alt="' + ev.title + '" class="event-listing__card-img">';
             html += '<div class="event-listing__card-body">';
-            html += '<span class="event-listing__card-type event-listing__card-type--' + ev.type + '">' + ev.type + '</span>';
+            html += '<span class="event-listing__card-type event-listing__card-type--' + ev.type + '">' + formatTypeLabel(ev.type) + '</span>';
             html += '<h4 class="event-listing__card-title"><a href="post.html?id=' + ev.id + '">' + ev.title + '</a></h4>';
             html += '<p class="event-listing__card-date"><i class="far fa-calendar-alt"></i>' + formatDate(ev.date) + '</p>';
             html += '<p class="event-listing__card-desc">' + ev.description + '</p>';
@@ -70,7 +86,7 @@
     function handleRoute() {
         var params = new URLSearchParams(window.location.search);
         var type = params.get('type');
-        if (type === 'workshop' || type === 'event') {
+        if (TYPE_CONFIG[type]) {
             showListing(type);
         } else {
             showCategories();

@@ -1,5 +1,5 @@
 /**
- * Central Events & Workshops Data Store
+ * Central Services Data Store (Workshops, Events, Birthday Events)
  */
 window.EVENTS_DATA = [
     {
@@ -73,6 +73,37 @@ window.EVENTS_DATA = [
                 name: "Kiran Das",
                 date: "2026-02-23",
                 text: "Will there be a parking area nearby? Would love to know the logistics for families coming by car."
+            }
+        ]
+    },
+    {
+        id: 5,
+        type: "birthday-event",
+        title: "CurioKids Birthday Bash Experience",
+        date: "2026-03-15",
+        time: "4:00 PM - 8:00 PM",
+        location: "CurioKids Activity Studio, Ahmedabad",
+        description: "A themed birthday celebration with fun games, creative activities, live entertainment, and complete event coordination for kids.",
+        fullContent: "<p>Make your child&rsquo;s special day unforgettable with our <strong>CurioKids Birthday Bash Experience</strong>! We design and host interactive birthday events packed with excitement, creativity, and joyful memories.</p><h4>What&rsquo;s Included</h4><ul><li>Theme-based decorations and setup</li><li>Interactive games and activity stations</li><li>Creative workshop corner for kids</li><li>Host support and event coordination</li><li>Music, dance, and celebration moments</li></ul><p>From planning to execution, our team handles everything so parents can relax and enjoy the celebration.</p><h4>Best For</h4><p>Perfect for kids birthdays, small group celebrations, and custom party experiences tailored to your child&rsquo;s interests.</p>",
+        thumbnail: "assets/images/Event6_index.png",
+        images: [
+            "assets/images/Event6_index.png",
+            "assets/images/Event5_index.png",
+            "assets/images/Event4_index.png"
+        ],
+        tags: ["birthday", "kids", "party", "celebration"],
+        comments: [
+            {
+                avatar: "assets/images/testi1.jpg",
+                name: "Nidhi Shah",
+                date: "2026-03-01",
+                text: "Absolutely loved how the team managed everything from games to decor. The kids were engaged the whole time!"
+            },
+            {
+                avatar: "assets/images/testi2.jpg",
+                name: "Manan Patel",
+                date: "2026-03-03",
+                text: "Booked for my daughter and it was fantastic. Super organized and very child-friendly activities."
             }
         ]
     }

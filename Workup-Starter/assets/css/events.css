@@ -227,6 +227,11 @@
     color: #fff;
 }
 
+.ec-sidebar__event-type--birthday-event {
+    background-color: #ff9800;
+    color: #fff;
+}
+
 .ec-sidebar__event-title {
     font-size: 20px;
     font-weight: 700;
@@ -358,6 +363,11 @@
     color: #fff;
 }
 
+.event-listing__card-type--birthday-event {
+    background-color: #ff9800;
+    color: #fff;
+}
+
 .event-listing__card-title {
     font-size: 18px;
     font-weight: 700;
@@ -459,6 +469,11 @@
 
 .post-detail__type--event {
     background-color: var(--primary-color);
+    color: #fff;
+}
+
+.post-detail__type--birthday-event {
+    background-color: #ff9800;
     color: #fff;
 }
 

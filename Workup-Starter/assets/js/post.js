@@ -1,6 +1,6 @@
 /**
  * Post Detail Page Loader
- * Reads ?id=X from URL and populates event/workshop detail page
+ * Reads ?id=X from URL and populates service detail page
  */
 (function () {
     var params = new URLSearchParams(window.location.search);
@@ -14,7 +14,14 @@
 
     if (!postContent) return;
 
-    // Find the event
+    function formatTypeLabel(type) {
+        return String(type || '')
+            .split('-')
+            .map(function (part) { return part.charAt(0).toUpperCase() + part.slice(1); })
+            .join(' ');
+    }
+
+    // Find the service
     var event = null;
     for (var i = 0; i < events.length; i++) {
         if (events[i].id === eventId) {
@@ -27,9 +34,9 @@
         postContent.innerHTML =
             '<div class="post-not-found">' +
             '<i class="far fa-frown"></i>' +
-            '<h3>Event Not Found</h3>' +
-            '<p>The event you are looking for does not exist or may have been removed.</p>' +
-            '<a href="services.html" class="btn btn-style">Browse Events</a>' +
+            '<h3>Service Not Found</h3>' +
+            '<p>The service you are looking for does not exist or may have been removed.</p>' +
+            '<a href="services.html" class="btn btn-style">Browse Services</a>' +
             '</div>';
         if (postComments) postComments.style.display = 'none';
         if (postSidebar) postSidebar.innerHTML = '';
@@ -42,7 +49,7 @@
     }
 
     // Update page title
-    document.title = event.title + ' - Workup Events';
+    document.title = event.title + ' - CurioKids Services';
 
     function formatDate(dateStr) {
         var parts = dateStr.split("-");
@@ -54,7 +61,7 @@
     var html = '<div class="post-detail">';
 
     // Type badge
-    html += '<span class="post-detail__type post-detail__type--' + event.type + '">' + event.type + '</span>';
+    html += '<span class="post-detail__type post-detail__type--' + event.type + '">' + formatTypeLabel(event.type) + '</span>';
 
     // Title
     html += '<h1 class="post-detail__title">' + event.title + '</h1>';
@@ -135,7 +142,7 @@
         postComments.innerHTML = commentsHtml;
     }
 
-    // Build related events sidebar
+    // Build related services sidebar
     if (postSidebar) {
         // Same type first, then others, exclude current
         var related = events
@@ -149,7 +156,7 @@
 
         if (related.length > 0) {
             var sidebarHtml = '<div class="related-events">';
-            sidebarHtml += '<h4 class="related-events__title">Related Events</h4>';
+            sidebarHtml += '<h4 class="related-events__title">Related Services</h4>';
 
             related.forEach(function (rel) {
                 sidebarHtml += '<a href="post.html?id=' + rel.id + '" class="related-events__item">';

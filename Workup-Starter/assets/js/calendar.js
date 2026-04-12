@@ -1,5 +1,5 @@
 /**
- * Calendar Renderer
+ * Services Calendar Renderer
  * Supports compact mode (index.html) and full mode (calendar.html)
  */
 var CalendarRenderer = (function () {
@@ -29,6 +29,13 @@ var CalendarRenderer = (function () {
         var parts = dateStr.split("-");
         var d = new Date(parts[0], parts[1] - 1, parts[2]);
         return d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+    }
+
+    function formatTypeLabel(type) {
+        return String(type || '')
+            .split('-')
+            .map(function (part) { return part.charAt(0).toUpperCase() + part.slice(1); })
+            .join(' ');
     }
 
     function render(selector, options) {
@@ -152,7 +159,7 @@ var CalendarRenderer = (function () {
 
         var html = '';
         html += '<img src="' + event.thumbnail + '" alt="' + event.title + '" class="ec-sidebar__event-img">';
-        html += '<span class="ec-sidebar__event-type ec-sidebar__event-type--' + event.type + '">' + event.type + '</span>';
+        html += '<span class="ec-sidebar__event-type ec-sidebar__event-type--' + event.type + '">' + formatTypeLabel(event.type) + '</span>';
         html += '<h4 class="ec-sidebar__event-title">' + event.title + '</h4>';
         html += '<ul class="ec-sidebar__event-meta">';
         html += '<li><i class="far fa-calendar-alt"></i> ' + formatDate(event.date) + '</li>';
